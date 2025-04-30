@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>Custom AMA-Vancouver (No Italics, No Period, Author Limit)</title>
+    <id>http://www.zotero.org/styles/custom-ama-vancouver</id>
+    <link href="http://www.zotero.org/styles/custom-ama-vancouver" rel="self"/>
+    <author>
+      <name>Custom</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="medicine"/>
+    <updated>2025-04-30T00:00:00+00:00</updated>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name name-as-sort-order="first" initialize-with="." delimiter=", ">
+        <name-form form="long"/>
+      </name>
+      <label form="long" prefix=" "/>
+      <substitute>
+        <text macro="editor"/>
+      </substitute>
+      <et-al min="7" use-first="3" font-style="normal"/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="container-title">
+    <text variable="container-title" form="short" strip-periods="true"/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page"/>
+  </macro>
+
+  <macro name="volume">
+    <group delimiter=":">
+      <text variable="volume"/>
+      <text variable="page"/>
+    </group>
+  </macro>
+
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="(" suffix=")" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography et-al-min="7" et-al-use-first="3" et-al-subsequent-min="7" et-al-subsequent-use-first="3">
+    <layout>
+      <text variable="citation-number" suffix=". "/>
+      <group delimiter=". ">
+        <text macro="author"/>
+        <text macro="title"/>
+        <text macro="container-title"/>
+        <text macro="issued"/>
+        <text macro="volume"/>
+      </group>
+      <text macro="pages" prefix=": "/>
+    </layout>
+  </bibliography>
+</style>
